@@ -1,20 +1,22 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 module.exports = {
-    mode: 'development',
-    entry: {
-        index: './src/main.js',
-    },
-    output: {
-        filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'dist'),
-    },
-    // add the css files process config 
-    module: {
-        rules: [
-          {
-            test: /\.css$/i,
-            use: ['style-loader', 'css-loader'],
-          },
-        ],
-      },
+  mode: 'development',
+  entry: {
+    index: './src/main.js',
+    print: './src/print.js',
+    log: './src/log.js',
+  },
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Output Management',
+    }),
+  ],
+
+
 };
