@@ -1,9 +1,14 @@
-import { getUsers } from "./common/userApi"
 
+import './style.css';
 
-const btn = document.getElementById("btn")
+function component() {
+    const element = document.createElement('div');
 
-btn.addEventListener("click", async () => {
-    const users = await getUsers()
-    console.log(users)
-})
+    // Lodash, now imported by this script
+    element.innerHTML = "hello"
+    element.classList.add('hello');
+
+    return element;
+}
+
+document.body.appendChild(component());
